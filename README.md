@@ -3,10 +3,10 @@
 [![Latest npm release][npm-badge]][npm-badge-url]
 [![TravisCI Build Status][travis-badge]][travis-badge-url]
 
-[npm-badge]: https://img.shields.io/npm/v/@atsjj/node-memwatch.svg
-[npm-badge-url]: https://www.npmjs.com/package/@atsjj/node-memwatch
-[travis-badge]: https://img.shields.io/travis/com/atsjj/node-memwatch/master.svg?label=TravisCI
-[travis-badge-url]: https://travis-ci.com/atsjj/node-memwatch
+[npm-badge]: https://img.shields.io/npm/v/@atsjj/memwatch.svg
+[npm-badge-url]: https://www.npmjs.com/package/@atsjj/memwatch
+[travis-badge]: https://img.shields.io/travis/com/atsjj/memwatch/master.svg?label=TravisCI
+[travis-badge-url]: https://travis-ci.com/atsjj/memwatch
 [license-url]: http://wtfpl.net
 [memwatch-next-url]: https://github.com/marcominetti/node-memwatch
 
