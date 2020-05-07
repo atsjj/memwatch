@@ -1,7 +1,7 @@
 {
   "name": "@atsjj/memwatch",
   "description": "Keep an eye on your memory usage, and discover and isolate leaks.",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "main": "include.js",
   "license": "wtfpl",
   "auto-changelog": {
