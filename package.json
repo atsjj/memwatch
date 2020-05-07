@@ -1,39 +1,88 @@
 {
-  "name": "memwatch-next",
+  "name": "@atsjj/memwatch-next",
   "description": "Keep an eye on your memory usage, and discover and isolate leaks.",
-  "version": "0.3.0",
-  "author": "Lloyd Hilaiel (http://lloyd.io)",
+  "version": "0.4.0",
+  "main": "include.js",
+  "license": "wtfpl",
+  "auto-changelog": {
+    "commitLimit": false,
+    "issueUrl": "https://github.com/atsjj/memwatch-next/issues/{id}",
+    "package": "package.json",
+    "releaseSummary": true,
+    "template": "https://gist.githubusercontent.com/atsjj/de6998d6750a8b32778fa3380da24301/raw/66a23990c3324f03aa756e45fed70d46389c7eab/normal.hbs"
+  },
+  "bugs": {
+    "url": "https://github.com/atsjj/node-memwatch/issues"
+  },
+  "contributors": [
+    {
+      "name": "Lloyd Hilaiel",
+      "url": "http://lloyd.io"
+    },
+    {
+      "name": "Jed Parsons",
+      "url": "https://github.com/jedp",
+      "githubUsername": "jedp"
+    },
+    {
+      "name": "Jeff Haynie",
+      "url": "https://github.com/jhaynie",
+      "githubUsername": "jhaynie"
+    },
+    {
+      "name": "Justin Matthews",
+      "url": "https://github.com/jmatthewsr-ms",
+      "githubUsername": "jmatthewsr-ms"
+    },
+    {
+      "name": "Pavel Yasiukevich",
+      "url": "https://github.com/pavel-yasiukevich",
+      "githubUsername": "pavel-yasiukevich"
+    },
+    {
+      "name": "Steve Jabour",
+      "url": "https://github.com/atsjj",
+      "githubUsername": "atsjj"
+    }
+  ],
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 12"
+  },
+  "release-it": {
+    "git": {
+      "changelog": "npx auto-changelog --stdout --template https://gist.githubusercontent.com/atsjj/de6998d6750a8b32778fa3380da24301/raw/66a23990c3324f03aa756e45fed70d46389c7eab/compact.hbs",
+      "requireCleanWorkingDir": true,
+      "requireUpstream": true,
+      "requireCommits": false,
+      "addUntrackedFiles": false,
+      "commit": true,
+      "commitMessage": "${version}",
+      "commitArgs": "--gpg-sign",
+      "tag": true,
+      "tagName": "${version}",
+      "tagAnnotation": "${version}",
+      "tagArgs": "--sign",
+      "push": true,
+      "pushArgs": "--follow-tags",
+      "pushRepo": "origin"
+    },
+    "npm": {
+      "publish": true
+    }
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcominetti/node-memwatch.git"
-  },
-  "main": "include.js",
-  "licenses": [
-    {
-      "type": "wtfpl"
-    }
-  ],
-  "bugs": {
-    "url": "https://github.com/marcominetti/node-memwatch/issues"
+    "url": "https://github.com/atsjj/node-memwatch.git"
   },
   "scripts": {
     "install": "node-gyp rebuild",
-    "test": "mocha tests --reporter spec"
+    "test": "ava test.js"
   },
   "devDependencies": {
-    "mocha": "^2.4.5",
-    "should": "^8.3.1"
+    "ava": "^3.8.1"
   },
-  "contributors": [
-    "Jed Parsons (@jedp)",
-    "Jeff Haynie (@jhaynie)",
-    "Justin Matthews (@jmatthewsr-ms)"
-  ],
   "dependencies": {
-    "bindings": "^1.2.1",
-    "nan": "^2.3.2"
+    "bindings": "^1.5.0",
+    "nan": "^2.14.1"
   }
 }
