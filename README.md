@@ -1,50 +1,54 @@
-`node-memwatch`: Leak Detection and Heap Diffing for Node.JS
-============================================================
+# Memwatch
 
-[![Build Status](https://travis-ci.org/deepak1556/node-memwatch.svg?branch=master)](https://travis-ci.org/deepak1556/node-memwatch)
+[![Latest npm release][npm-badge]][npm-badge-url]
+[![TravisCI Build Status][travis-badge]][travis-badge-url]
 
-`node-memwatch` is here to help you detect and find memory leaks in
+[npm-badge]: https://img.shields.io/npm/v/@atsjj/node-memwatch.svg
+[npm-badge-url]: https://www.npmjs.com/package/@atsjj/node-memwatch
+[travis-badge]: https://img.shields.io/travis/com/atsjj/node-memwatch/master.svg?label=TravisCI
+[travis-badge-url]: https://travis-ci.com/atsjj/node-memwatch
+[license-url]: http://wtfpl.net
+[memwatch-next-url]: https://github.com/marcominetti/node-memwatch
+
+Leak Detection and Heap Diffing for Node.JS. This is a fork of [memwatch-next][memwatch-next-url]
+that adds support for newer versions of Node.
+
+`memwatch` is here to help you detect and find memory leaks in
 Node.JS code.  It provides:
 
-- A `leak` event, emitted when it appears your code is leaking memory.
+* A `leak` event, emitted when it appears your code is leaking memory.
 
-- A `stats` event, emitted occasionally, giving you
+* A `stats` event, emitted occasionally, giving you
   data describing your heap usage and trends over time.
 
-- A `HeapDiff` class that lets you compare the state of your heap between
+* A `HeapDiff` class that lets you compare the state of your heap between
   two points in time, telling you what has been allocated, and what
   has been released.
 
+## Installation
 
-Installation
-------------
+```
+npm install --save @atsjj/memwatch
+```
 
-- `npm install memwatch-next`
+## Description
 
-or
+There are a growing number of tools for debugging and profiling memory usage in Node.JS
+applications, but there is still a need for a platform-independent native module that requires no
+special instrumentation.
 
-- `git clone git://github.com/marcominetti/node-memwatch.git`
+This module attempts to satisfy that need.
 
-
-Description
------------
-
-There are a growing number of tools for debugging and profiling memory
-usage in Node.JS applications, but there is still a need for a
-platform-independent native module that requires no special
-instrumentation.  This module attempts to satisfy that need.
-
-To get started, import `node-memwatch` like so:
+To get started, import `memwatch` like so:
 
 ```javascript
-var memwatch = require('memwatch-next');
+const memwatch = require('@atsjj/memwatch');
 ```
 
 ### Leak Detection
 
-You can then subscribe to `leak` events.  A `leak` event will be
-emitted when your heap usage has increased for five consecutive
-garbage collections:
+You can then subscribe to `leak` events.  A `leak` event will be emitted when your heap usage has
+increased for five consecutive garbage collections:
 
 ```javascript
 memwatch.on('leak', function(info) { ... });
@@ -58,7 +62,6 @@ The `info` object will look something like:
   growth: 67984,
   reason: 'heap growth over 5 consecutive GCs (20s) - 11.67 mb/hr' }
 ```
-
 
 ### Heap Usage
 
@@ -108,12 +111,12 @@ and computes a diff between them.  For example:
 
 ```javascript
 // Take first snapshot
-var hd = new memwatch.HeapDiff();
+const hd = new memwatch.HeapDiff();
 
 // do some things ...
 
 // Take the second snapshot and compute the diff
-var diff = hd.end();
+const diff = hd.end();
 ```
 
 The contents of `diff` will look something like:
@@ -147,14 +150,20 @@ You can use `HeapDiff` in your `on('stats')` callback; even though it
 takes a memory snapshot, which triggers a V8 GC, it will not trigger
 the `stats` event itself.  Because that would be silly.
 
+## Tests
 
-Future Work
------------
+```
+npm install
+npm test
+```
+
+## Contributing
 
 Please see the Issues to share suggestions and contribute!
 
+## License
 
-License
--------
+The original `memwatch` package is the original work of Lloyd Hilaiel
+([http://lloyd.io](http://lloyd.io)) and as such retains the original license.
 
-http://wtfpl.net
+This project is licensed under the [WTFPL][license-url].

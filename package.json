@@ -1,23 +1,24 @@
 {
-  "name": "@atsjj/memwatch-next",
+  "name": "@atsjj/memwatch",
   "description": "Keep an eye on your memory usage, and discover and isolate leaks.",
   "version": "0.4.0",
   "main": "include.js",
   "license": "wtfpl",
   "auto-changelog": {
     "commitLimit": false,
-    "issueUrl": "https://github.com/atsjj/memwatch-next/issues/{id}",
+    "issueUrl": "https://github.com/atsjj/memwatch/issues/{id}",
     "package": "package.json",
     "releaseSummary": true,
     "template": "https://gist.githubusercontent.com/atsjj/de6998d6750a8b32778fa3380da24301/raw/66a23990c3324f03aa756e45fed70d46389c7eab/normal.hbs"
   },
   "bugs": {
-    "url": "https://github.com/atsjj/node-memwatch/issues"
+    "url": "https://github.com/atsjj/memwatch/issues"
   },
   "contributors": [
     {
       "name": "Lloyd Hilaiel",
-      "url": "http://lloyd.io"
+      "url": "http://lloyd.io",
+      "githubUsername": "lloyd"
     },
     {
       "name": "Jed Parsons",
@@ -72,7 +73,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/atsjj/node-memwatch.git"
+    "url": "https://github.com/atsjj/memwatch.git"
   },
   "scripts": {
     "install": "node-gyp rebuild",
