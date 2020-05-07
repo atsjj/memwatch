@@ -1,0 +1,8 @@
+*
+!src/*
+!binding.gyp
+!include.js
+!LICENSE
+!package.json
+!README.md
+!test.js
